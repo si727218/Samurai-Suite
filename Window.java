@@ -79,7 +79,7 @@ public class Window extends JFrame implements ActionListener{
 
         //Ping Sweep
         else if(e.getSource() == button3){
-            pingsweep ping1 = new pingsweep(new StringBuilder("192.168.15.0"),254);
+            pingsweep ping1 = new pingsweep(new StringBuilder("192.168.1.0"),10);
             ping1.ping();
         }
 
