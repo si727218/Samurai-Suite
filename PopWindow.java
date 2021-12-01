@@ -14,14 +14,15 @@ public class PopWindow {
     PopWindow(){
         label.setBounds(20, 0, 600, 220);
         label.setForeground(Color.RED);
-        label.setFont(new Font("Consolas", Font.PLAIN, 12));
+        label.setFont(new Font("Consolas", Font.PLAIN, 18));
 
         frame.add(label);
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setResizable(false);
-        frame.setSize(420,220);
+        frame.setSize(620,220);
         frame.setLayout(null);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.getContentPane().setBackground(Color.black);
     }

@@ -10,9 +10,19 @@ import java.util.Scanner;
 public class discovery {
     public String direccion;
     public String dir;
+    public String archivo;
 
-    public discovery(String direccion) {
+    public discovery(String direccion, String archivo) {
         this.direccion = direccion;
+        this.archivo = archivo;
+    }
+
+    public String getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(String archivo) {
+        this.archivo = archivo;
     }
 
     public String getDireccion() {
@@ -23,10 +33,10 @@ public class discovery {
         this.direccion = direccion;
     }
 
-    PriorityQueue<String> positives=new PriorityQueue<>();
+    public static PriorityQueue<String> positives=new PriorityQueue<>();
 
     public void bruteforce() throws IOException {
-        FileInputStream diccionario=new FileInputStream("web.txt");
+        FileInputStream diccionario=new FileInputStream(archivo);
         Scanner sc=new Scanner(diccionario);
         while(sc.hasNextLine())
         {
@@ -42,8 +52,6 @@ public class discovery {
                 positives.offer(dir);
             }
         }
-        System.out.println("------------------------------");
-        while(! positives.isEmpty())
-            System.out.println("Contenido encontrado en: "+positives.poll());
+
     }
 }

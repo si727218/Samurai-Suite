@@ -1,12 +1,12 @@
 package proyecto;
 
-import java.awt.Color;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import javax.swing.JFrame;
+import javax.swing.*;
 
 public class Window extends JFrame implements ActionListener{
     Button button1, button2, button3, button4, button5, button6;
@@ -64,7 +64,6 @@ public class Window extends JFrame implements ActionListener{
             wordlist w1 = new wordlist(100, 8);
             try {
                 w1.generate();
-                System.out.println(w1.toString());
             } catch (FileNotFoundException ex) {
                 ex.printStackTrace();
             } catch (UnsupportedEncodingException ex) {
@@ -74,30 +73,22 @@ public class Window extends JFrame implements ActionListener{
 
         //Hashes
         else if(e.getSource()==button1){
-            Input input = new Input();
+            HashesGUI input = new HashesGUI();
         }
 
         //Ping Sweep
         else if(e.getSource() == button3){
-            pingsweep ping1 = new pingsweep(new StringBuilder("192.168.1.0"),10);
-            ping1.ping();
+            PingSweepGUI pingsweep = new PingSweepGUI();
         }
 
         //Content Discovery
         else if(e.getSource() == button6){
-            discovery d1 = new discovery("http://testphp.vulnweb.com");
-            try {
-                d1.bruteforce();
-            } catch (IOException ex) {
-                ex.printStackTrace();
-            }
+            ContentDiscoveryGUI cdiscovery = new ContentDiscoveryGUI();
         }
 
         //Shells
         else if(e.getSource() == button5){
-            shells s1 = new shells(1,"192.168.15.15","1234");
-            s1.shellify();
-            System.out.println(s1);
+            ShellGUI shell = new ShellGUI();
         }
     }
 }

@@ -40,7 +40,7 @@ public class GUI {
         panel.add(textLabel);
 
         window.add(panel);
-
+        window.setLocationRelativeTo(null);
         window.setVisible(true);
     }
 }

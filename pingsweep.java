@@ -6,6 +6,7 @@ public class pingsweep {
     private StringBuilder IP;
     private int lastIndex;
     private int numhosts;
+    public static PriorityQueue<String> positives;
 
     public pingsweep(StringBuilder IP, int numhosts) {
         this.IP = IP;
@@ -34,7 +35,7 @@ public class pingsweep {
     }
 
     public void ping() {
-        PriorityQueue<String> positives=new PriorityQueue<>();
+        positives=new PriorityQueue<>();
         for(int i=1;i<=numhosts;i++) {
             lastIndex = IP.lastIndexOf(".");
             IP.delete(lastIndex+1, IP.length());
@@ -50,9 +51,6 @@ public class pingsweep {
                 e.printStackTrace();
             }
         }
-        System.out.println("------------------------------");
-        System.out.println("Hosto vivos: ");
-        while(! positives.isEmpty())
-            System.out.println(positives.poll());
+
     }
 }
